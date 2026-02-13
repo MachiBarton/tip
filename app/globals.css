@@ -1,0 +1,222 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: 'Cinzel', 'Noto Serif SC', serif;
+  
+  /* 中世纪主题色 */
+  --color-parchment: #F4E8D0;
+  --color-aged-gold: #D4AF37;
+  --color-crimson: #8B2635;
+  --color-midnight-blue: #1B1B3A;
+  --color-ink-black: #2C241B;
+  --color-wax-seal: #A91B0D;
+  --color-silver: #C0C0C0;
+  
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #1B1B3A;
+  --foreground: #F4E8D0;
+  --card: #2C241B;
+  --card-foreground: #F4E8D0;
+  --popover: #2C241B;
+  --popover-foreground: #F4E8D0;
+  --primary: #D4AF37;
+  --primary-foreground: #1B1B3A;
+  --secondary: #8B2635;
+  --secondary-foreground: #F4E8D0;
+  --muted: #2C241B;
+  --muted-foreground: rgba(244, 232, 208, 0.6);
+  --accent: #8B2635;
+  --accent-foreground: #F4E8D0;
+  --destructive: #A91B0D;
+  --border: rgba(212, 175, 55, 0.3);
+  --input: rgba(212, 175, 55, 0.3);
+  --ring: #D4AF37;
+  --chart-1: #D4AF37;
+  --chart-2: #8B2635;
+  --chart-3: #1B1B3A;
+  --chart-4: #F4E8D0;
+  --chart-5: #A91B0D;
+  --sidebar: #2C241B;
+  --sidebar-foreground: #F4E8D0;
+  --sidebar-primary: #D4AF37;
+  --sidebar-primary-foreground: #1B1B3A;
+  --sidebar-accent: #8B2635;
+  --sidebar-accent-foreground: #F4E8D0;
+  --sidebar-border: rgba(212, 175, 55, 0.3);
+  --sidebar-ring: #D4AF37;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', 'Noto Serif SC', serif;
+  }
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2C241B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* 羊皮纸纹理背景类 */
+.parchment-texture {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* 卡牌翻转动画 */
+.card-flip {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.card-flip-inner {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.card-flip.flipped .card-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.card-flip-front,
+.card-flip-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-flip-back {
+  transform: rotateY(180deg);
+}
+
+/* 烛光闪烁动画 */
+@keyframes candle-flicker {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.98);
+  }
+}
+
+.candle-light {
+  animation: candle-flicker 3s ease-in-out infinite;
+}
+
+/* 浮动动画 */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 闪烁星光动画 */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* 神秘符文旋转 */
+@keyframes rune-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rune-rotate {
+  animation: rune-rotate 20s linear infinite;
+}
+
+/* 减少动画（无障碍） */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
