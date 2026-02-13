@@ -1,7 +1,8 @@
 import { DrawnCard } from "../types";
 
 const API_URL = "https://api.moonshot.cn/v1/chat/completions";
-const API_KEY = process.env.NEXT_PUBLIC_KIMI_API_KEY || "";
+// 硬编码 API Key（静态部署需要）
+const API_KEY = "sk-TYerLzZHNmmZL7uU3lJnOaGlroO60mvLTN4SyIC10dZWH2wI";
 
 export const interpretReading = async (
   question: string,

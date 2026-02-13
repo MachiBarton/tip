@@ -63,7 +63,7 @@ export const useReadingStore = create<ReadingState>()(
         if (drawnCards.length === 0) return;
 
         const newReading: ReadingRecord = {
-          id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2) + Date.now().toString(36),
+          id: Math.random().toString(36).substring(2) + Date.now().toString(36),
           timestamp: Date.now(),
           question: currentQuestion || '未记录问题',
           cards: drawnCards,
