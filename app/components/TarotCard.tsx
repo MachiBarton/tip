@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { DrawnCard } from '../types';
+import { getImagePath } from '@/lib/imagePath';
 
 interface TarotCardProps {
   card?: DrawnCard;
@@ -67,7 +68,7 @@ export default function TarotCard({
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={card.image}
+            src={getImagePath(card.image)}
             alt={card.nameCN || 'Tarot Card'}
             className="w-full h-full object-contain"
             onError={(e) => {

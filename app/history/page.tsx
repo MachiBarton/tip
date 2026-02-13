@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
 import useReadingStore from '../hooks/useReadingStore';
+import { getImagePath } from '@/lib/imagePath';
 import { ReadingRecord } from '../types';
 
 
@@ -209,7 +210,7 @@ function ReadingCard({ reading, isExpanded, onToggle, onDelete, formatDate, inde
                   style={{ zIndex: 3 - i }}
                 >
                   <img
-                    src={card.image}
+                    src={getImagePath(card.image)}
                     alt={card.nameCN}
                     className={`w-full h-full object-cover ${card.isReversed ? 'rotate-180' : ''}`}
                   />
@@ -250,7 +251,7 @@ function ReadingCard({ reading, isExpanded, onToggle, onDelete, formatDate, inde
                   <div key={i} className="flex flex-col items-center">
                     <div className={`w-20 h-32 rounded-lg overflow-hidden border border-[#D4AF37]/30 relative ${card.isReversed ? 'rotate-180' : ''}`}>
                       <img
-                        src={card.image}
+                        src={getImagePath(card.image)}
                         alt={card.nameCN}
                         className="w-full h-full object-cover"
                       />
