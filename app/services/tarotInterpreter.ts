@@ -22,17 +22,17 @@ export const interpretReading = async (
 ## 牌阵解读
 
 ### 第一张牌 · 过去/根源
-**${cards[0]?.nameCN}** (${cards[0]?.isReversed ? "逆位" : "正位"}) ${cards[0]?.number === 0 ? '· 大阿尔克那' : cards[0]?.suit ? `· ${cards[0]?.suit} ${cards[0]?.number}` : '· 大阿尔克那'}
+**${cards[0]?.nameCN}** (${cards[0]?.isReversed ? "逆位" : "正位"}) ${cards[0]?.number === 0 ? "· 大阿尔克那" : cards[0]?.suit ? `· ${cards[0]?.suit} ${cards[0]?.number}` : "· 大阿尔克那"}
 - 关键词：${cards[0]?.keywords?.join("、")}
 - 元素：${cards[0]?.element}
 
 ### 第二张牌 · 现在/挑战
-**${cards[1]?.nameCN}** (${cards[1]?.isReversed ? "逆位" : "正位"}) ${cards[1]?.number === 0 ? '· 大阿尔克那' : cards[1]?.suit ? `· ${cards[1]?.suit} ${cards[1]?.number}` : '· 大阿尔克那'}
+**${cards[1]?.nameCN}** (${cards[1]?.isReversed ? "逆位" : "正位"}) ${cards[1]?.number === 0 ? "· 大阿尔克那" : cards[1]?.suit ? `· ${cards[1]?.suit} ${cards[1]?.number}` : "· 大阿尔克那"}
 - 关键词：${cards[1]?.keywords?.join("、")}
 - 元素：${cards[1]?.element}
 
 ### 第三张牌 · 未来/指引
-**${cards[2]?.nameCN}** (${cards[2]?.isReversed ? "逆位" : "正位"}) ${cards[2]?.number === 0 ? '· 大阿尔克那' : cards[2]?.suit ? `· ${cards[2]?.suit} ${cards[2]?.number}` : '· 大阿尔克那'}
+**${cards[2]?.nameCN}** (${cards[2]?.isReversed ? "逆位" : "正位"}) ${cards[2]?.number === 0 ? "· 大阿尔克那" : cards[2]?.suit ? `· ${cards[2]?.suit} ${cards[2]?.number}` : "· 大阿尔克那"}
 - 关键词：${cards[2]?.keywords?.join("、")}
 - 元素：${cards[2]?.element}
 
@@ -63,7 +63,7 @@ export const interpretReading = async (
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "moonshot-v1-8k",
+        model: "kimi-k2-turbo-preview",
         messages: [{ role: "user", content: prompt }],
         temperature: 0.8,
         max_tokens: 800,
